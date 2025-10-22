@@ -17,5 +17,10 @@ namespace WebApplication2.Context
         //    optionsBuilder.UseSqlServer(
         //        @"Data Source=.;Initial Catalog=ICodeNext;Integrated Security=True;Trust Server Certificate=True");
         //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().Property(x => x.FirstName)
+                .HasMaxLength(150).IsRequired();
+        }
     }
 }
