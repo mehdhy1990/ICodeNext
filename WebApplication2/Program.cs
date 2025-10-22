@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using WebApplication2.Context;
+
 namespace WebApplication2
 {
     public class Program
@@ -13,6 +16,8 @@ namespace WebApplication2
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(@"Data Source=.;Initial Catalog=ICodeNext;Integrated Security=True;Trust Server Certificate=True"));
 
             var app = builder.Build();
 

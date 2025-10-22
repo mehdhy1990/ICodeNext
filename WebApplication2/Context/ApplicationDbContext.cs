@@ -7,9 +7,15 @@ namespace WebApplication2.Context
     {
         private DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :base(options) 
         {
-            optionsBuilder.UseSqlServer(@"Data Source=.;Initial Catalog=ICodeNext;Integrated Security=True;Trust Server Certificate=True");
+            
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        
+        //{
+        //    optionsBuilder.UseSqlServer(
+        //        @"Data Source=.;Initial Catalog=ICodeNext;Integrated Security=True;Trust Server Certificate=True");
+        //}
     }
 }
